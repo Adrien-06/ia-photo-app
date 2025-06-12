@@ -1,20 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async headers() {
+  reactStrictMode: true,
+  images: {
+    domains: ['replicate.delivery'],
+  },
+  headers: async () => {
     return [
       {
-        source: "/(.*)",
+        source: '/(.*)',
         headers: [
           {
-            key: "Content-Security-Policy",
-            value: `
-              default-src 'self';
-              script-src 'self' 'unsafe-eval' https://vercel.live;
-              connect-src 'self' https://vercel.live wss://*.pusher.com;
-              style-src 'self' 'unsafe-inline';
-              img-src 'self' data: https:;
-              font-src 'self' https:;
-            `.replace(/\s{2,}/g, ' ').trim(),
+            key: 'Content-Security-Policy',
+            value:
+              "script-src 'self' https://vercel.live; object-src 'none'; base-uri 'self';",
           },
         ],
       },
