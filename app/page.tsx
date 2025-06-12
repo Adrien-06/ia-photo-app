@@ -116,4 +116,8 @@ export default function LandingPage() {
       </div>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> bfd5c21 (Fix CSP policy to avoid eval error on Vercel)
